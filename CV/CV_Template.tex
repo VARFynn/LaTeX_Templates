@@ -1,0 +1,248 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CV Template - Version: Business,  One Pager
+% © Fynn Lohre 
+%
+% The following template is designed for a CV used in Industry,  Consulting et aequalis.
+% If you are an experienced hire,  I recommend switching Education and Work Experience.
+%
+% In case of any questions - feel free to reach out: VARFynn@gmail.com
+% If this Template helps you,  Endorsments on Linkedin or in persona are welcome.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%---------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% 1.  Preamble
+%
+% This defines the properties of the document.
+% Includes: Font Size, Spacing & other "Style Elements".
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% 1.1 Basic Packages
+
+\documentclass[10pt,letterpaper]{article}																			% Adjust Font Size here
+
+\usepackage[utf8]{inputenc}																								% Input encoding to be UTF-8, which allows the use of non-ASCII characters
+
+\usepackage[english]{babel}																								% Activate if English
+
+%\usepackage[german]{babel}																							% Activate if German 
+
+\usepackage{amsmath}																										% Additional math symbols and environments
+
+\usepackage{amsfonts}																										% Additional mathematical fonts
+
+\usepackage{amssymb}																									% Additional mathematical symbols
+
+\usepackage{graphicx}																										% Including and manipulating external graphics
+
+\usepackage{titlesec}																										% Commands for customizing the format of section headings in the document
+
+\usepackage{tabularx}																										% Creating tables with columns of adjustable width
+
+\usepackage[hidelinks]{hyperref}																						% Hyperlinks and bookmarks
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total		=		{170mm,257mm},
+ left		=		14mm,
+ top		=		7mm,
+ right		=		14mm,
+ bottom	=	4mm
+ }																																		% Adjust size of paper.  IF you change that,  you also have to change the size of the table in the ''Additional Information'' Section (2.4)!
+
+ \usepackage{multicol}																										 % Use mutiple columns
+ 
+ \usepackage{enumitem}																									% Customize Lists
+ 
+%---------------------------------------------------------------------------------------
+%% 1.2 Define/Style your Sections and Jobs 
+
+% Section Style (Education,  Experience & ...) 
+\titleformat{\section}
+	{\bfseries \large \scshape \raggedright} 																		% Make the \section headers bold (\bfseries) large (\large),  small capitals (\scshape) and left aligned (\raggedright) - Adjustable
+	{}{0em}                      																										% This could be used to give a prefix to all sections, like 'Section ...'
+	{}                           																											% This could be used to insert code before the heading
+	[\titlerule]                 
+ 
+\titlespacing*{\section}{0mm}{2.2mm}{1.6mm}																	% Changes the spacing: {<left>}{<before-sep>}{<after-sep>}
+
+ 
+ % Subsection style (specific University,  experience & ...)
+ \titleformat{\subsection}
+  {\bfseries \scshape \raggedright}																						% Make the \susection headers bold (\bfseries),  small capitals (\scshape) and left aligned (\raggedright) - Adjustable
+  {}{0em}                     																										% This could be used to give a prefix to all sections, like 'Section ...'
+  {}                          																												% This could be used to insert code before the heading
+
+\titlespacing*{\subsection} {0mm}{0mm}{0mm} 																%Changes the spacing: {<left>}{<before-sep>}{<after-sep>}
+
+%---------------------------------------------------------------------------------------
+%% 1.3 Defining commands used in document.
+
+% Header
+\newcommand{\name}[1]{%
+  \centerline{\Huge{#1}}
+}
+
+% Contact Line
+\newcommand\contact[5]{%
+    \centerline{%
+        \makebox[0pt][c]{%
+            #1 {\large\textperiodcentered} #2 {\large\textperiodcentered} #3
+            {\large\textperiodcentered} #4 {\large\textperiodcentered} #5%
+        }%
+    }%
+}
+
+%	Section
+\newcommand{\datedsection}[2]{%
+  \section[#1]{#1 \hfill #2}%
+}
+
+%	Subsection
+\newcommand{\NameDate}[2]{%
+  \subsection[#1]{#1 \hfill #2}%
+}
+ 
+% Bullet(-design)
+\newcommand{\myitem}{\item[\tiny$\blacksquare$]}
+\setlist{leftmargin=0.5cm}
+
+%% Syntax follows the one above.  Commands are used when document begins.
+
+%---------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% 2.  Content
+%
+% This is the part where you add your information. 
+% Make sure,  to shortly have read the readme.txt
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+ 
+
+\begin{document}
+\pagestyle{empty}
+
+%% 2.1 Header
+
+\name{\href{http://www.linkedin.com/}																				% Enter link to your Linkedin
+{Name Surename \includegraphics[scale=0.075]{linkedin.png}}} 										% Name, Surename; The Linkedin Picture needs to be in the same folder 
+
+\contact{Street 14/4/9}{City}{AT-1150}																				% Adress 
+{\href{mailto:Name.Surename@gmail.com}{Name.Surename@gmail.com}}							% Hyperlink Mail 
+{\href{callto: +4312312312312}{(+43)\,123\,123\,123\,12}} 													% Hyperlink Phone 
+
+ 
+%---------------------------------------------------------------------------------------
+%% 2.2 Education
+
+\section{\textbf{Education}}
+\NameDate{University I}{City,  State}
+\textit{M.Sc.  Economics; Current GPA: 1.0
+\hfill Since 10/2022
+} \\[-6.25mm]
+\begin{itemize}
+\setlength\itemsep{-0.35em}
+\myitem ....
+\myitem ....
+\end{itemize}
+
+\NameDate{University II}{City,  State}
+\textit{M.Sc.  Economics (Exchange Semester) \hfill  \hfill {XX/20XX $-$ XX/20XX}} \\[-2.5mm]	% Note,  if you dont use bullets,  a different spacing is needed 
+
+\NameDate{University III}{City,  State}
+\textit{B.Sc. Economics; GPA: 1.0\hfill {XX/20XX $-$ XX/20XX}} \\[-6.25mm]
+\begin{itemize}
+\setlength\itemsep{-0.35em}
+\myitem ....
+\myitem Thesis: ....  (Grade: 1.0).
+\end{itemize}
+
+ 
+%---------------------------------------------------------------------------------------
+%% 2.3 Work Experience  
+
+\section{Work Experience}
+\NameDate{Work Experience I}{City, State}
+\textit{Job Title; Topic} \hfill \textit {XX/20XX $-$ XX/20XX} \\[-6.25mm]
+\begin{itemize}
+\setlength\itemsep{-0.35em}
+\myitem ....
+\myitem ....
+\myitem ....
+\end{itemize}
+
+\NameDate{Work Experience II}{City, State}
+\textit{Job Title; Topic} \hfill \textit {XX/20XX $-$ XX/20XX} \\[-6.25mm]
+\begin{itemize}
+\setlength\itemsep{-0.35em}
+\myitem ....
+\myitem ....
+\myitem ....
+\end{itemize}
+
+\NameDate{Work Experience III (Short,  not as relevant)}{City, State}
+\textit{Job Title; Topic} \hfill \textit {XX/20XX $-$ XX/20XX}  \\[-2.5mm] 									% Note,  if you dont use bullets,  a different spacing is needed 
+
+
+\NameDate{Work Experience IV}{City, State}
+\textit{Job Title; Topic} \hfill \textit {XX/20XX $-$ XX/20XX} \\[-6.25mm]
+\begin{itemize}
+\setlength\itemsep{-0.35em}
+\myitem ....
+\end{itemize}
+
+
+ 
+%---------------------------------------------------------------------------------------
+%% 2.4 Extra-Curriculars
+
+\section{Extra-Curriculars}
+\NameDate{Extra-Currcular Activity I}{City, State}
+\textit{Job Title; Topic} \hfill \textit {XX/20XX $-$ XX/20XX} \\[-6.25mm]
+\begin{itemize}
+\setlength\itemsep{-0.35em}
+\myitem ....
+\end{itemize}
+
+\NameDate{Extra-Currcular Activity I}{City, State}
+\textit{Job Title; Topic} \hfill \textit {XX/20XX $-$ XX/20XX} \\[-6.25mm]
+\begin{itemize}
+\setlength\itemsep{-0.35em}
+\myitem ....
+\end{itemize}
+
+%---------------------------------------------------------------------------------------
+%% 2.5 Extra-Curriculars
+
+\section{Additional Information}
+\hspace{-0.2cm}\begin{tabularx}{18.4cm}{lX}																	% It's important to adjust the table size,  if you adjust your pagesize
+
+\textbf{Languages:}
+& Language I (Fluent, C2),  ...\\
+
+\textbf{Software:}
+& \LaTeX, Stata,  ... \\
+
+\textbf{Honors:}
+& Scholarship I (WS 202X/2X \& WS 202X/2X),  Talent Program I (Since 20XX),  ...\\
+
+\textbf{Interests:}
+& Interest I,  ...
+
+\end{tabularx}
+
+%---------------------------------------------------------------------------------------
+%% 2.6 Signiture (optional - in Germany common) 
+
+\vfill
+\noindent
+\hfill {\footnotesize Place,  \today $\ldots\ldots\ldots\ldots\ldots\ldots\ldots$}						 % Adjust Place,  e.g. Vienna
+\end{document}
