@@ -3,5 +3,6 @@ This repository contains a collection of LaTeX templates for various types of do
 
 Included: 
 * CV (Business - One Pager) 
+* Titlepage_Leuphana (Leuphana Titlepage for e.g. Seminar Papers)
 
-
+In case of any questions reach out: VARFynn@gmail.com
