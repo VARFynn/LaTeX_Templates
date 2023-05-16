@@ -55,7 +55,7 @@
  right		=		14mm,
  bottom	=	4mm
  }											% Adjust size of paper.  IF you change that,  you also have to change the size of the table 
-											%in the ''Additional Information'' Section (2.4)!
+											% in the ''Additional Information'' Section (2.5)!
 
 \usepackage{multicol}									% Use multiple columns
  
@@ -156,7 +156,7 @@
 \end{itemize}
 
 \NameDate{University II}{City,  State}
-\textit{M.Sc.  Economics (Exchange Semester) \hfill  {XX/20XX $-$ XX/20XX}} \\[-2.5mm]	% Note,  if you dont use bullets,  a different spacing is needed 
+\textit{M.Sc.  Economics (Exchange Semester) \hfill  {XX/20XX $-$ XX/20XX}} \\[-2.5mm]	% Note,  if you don't use bullets,  a different spacing is needed 
 
 \NameDate{University III}{City,  State}
 \textit{B.Sc. Economics; GPA: 1.0 \hfill {XX/20XX $-$ XX/20XX}} \\[-6.25mm]
