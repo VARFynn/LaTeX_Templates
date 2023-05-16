@@ -1,3 +1,4 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CV Template - Version: Business,  One Pager
 % © Fynn Lohre 
@@ -54,7 +55,7 @@
  right		=		14mm,
  bottom	=	4mm
  }											% Adjust size of paper.  IF you change that,  you also have to change the size of the table 
-											in the ''Additional Information'' Section (2.4)!
+											%in the ''Additional Information'' Section (2.4)!
 
 \usepackage{multicol}									% Use multiple columns
  
