@@ -49,11 +49,10 @@
 \usepackage{geometry}
  \geometry{
  a4paper,
- total		=		{170mm,257mm},
  left		=		14mm,
  top		=		7mm,
  right		=		14mm,
- bottom	=	4mm
+ bottom		=		4mm
  }											% Adjust size of paper.  IF you change that,  you also have to change the size of the table 
 											% in the ''Additional Information'' Section (2.5)!
 
@@ -61,12 +60,14 @@
  
 \usepackage{enumitem}									% Customize Lists
  
+\hbadness=1000000 									% Careful: This mutes overfull h-box warnings, which occur due to intended spacing itself
+ 
 %---------------------------------------------------------------------------------------
 %% 1.2 Define/Style your Sections and Jobs 
 
 % Section Style (Education,  Experience & ...) 
 \titleformat{\section}
-	{\bfseries \large \scshape \raggedright} 					% Make \section headers bold (\bfseries), large (\large),  small capitals (\scshape) and left aligned (\raggedright) - Adjustable
+	{\bfseries \large  \raggedright} 						% Make \section headers bold (\bfseries), large (\large),  small capitals (\scshape) and/or left aligned (\raggedright) - Adjustable
 	{}{0em}                      							% This could be used to give a prefix to all sections, like 'Section ...'
 	{}                           							% This could be used to insert code before the heading
 	[\titlerule]                 
@@ -76,7 +77,7 @@
  
 % Subsection style (specific University,  experience & ...)
 \titleformat{\subsection}
-  {\bfseries \scshape \raggedright}							% Make \subsection headers bold (\bfseries),  small capitals (\scshape) and left aligned (\raggedright) - Adjustable
+  {\bfseries  \raggedright}								% Make \subsection headers bold (\bfseries),  small capitals (\scshape) and/or left aligned (\raggedright) - Adjustable
   {}{0em}                     								% This could be used to give a prefix to all sections, like 'Section ...'
   {}                          								% This could be used to insert code before the heading
 
@@ -105,14 +106,52 @@
   \section[#1]{#1 \hfill #2}%
 }
 
-%	Subsection
+% Subsection
 \newcommand{\NameDate}[2]{%
   \subsection[#1]{#1 \hfill #2}%
 }
  
+% Job Title 
+\newcommand{\Jobtitle}[2]{%
+    \textit{#1} \hfill \textit{#2} \\[-6.25mm]%
+}
+
+% Job Title if you don't use bullets for that entry
+\newcommand{\JobtitleNoBullets}[2]{%
+    \textit{#1} \hfill \textit{#2} \\[-2.5mm]%
+}
+
 % Bullet(-design)
 \newcommand{\myitem}{\item[\tiny$\blacksquare$]}
+
 \setlist{leftmargin=0.5cm}
+
+% Bullets
+\newcommand{\onebullets}[1]{%
+    \begin{itemize}
+        \setlength\itemsep{-0.35em}
+        \myitem #1
+    \end{itemize}%
+}
+
+\newcommand{\twobullets}[2]{%
+    \begin{itemize}
+        \setlength\itemsep{-0.35em}
+        \myitem #1
+        \myitem #2
+    \end{itemize}%
+}
+
+\newcommand{\threebullets}[3]{%
+    \begin{itemize}
+        \setlength\itemsep{-0.35em}
+        \myitem #1
+        \myitem #2
+        \myitem #3
+    \end{itemize}%
+}
+
+
 
 %% Syntax follows the one above.  Commands are used when document begins.
 
@@ -123,7 +162,6 @@
 % 2.  Content
 %
 % This is the part where you add your information. 
-% Make sure,  to shortly have read the readme.txt
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
@@ -134,7 +172,7 @@
 %% 2.1 Header
 
 \name{\href{http://www.linkedin.com/}							% Enter link to your Linkedin
-{Name Surename \includegraphics[scale=0.075]{linkedin.png}}} 				% Name, Surename; The Linkedin Picture needs to be in the same folder 
+{Name Surename \includegraphics[scale=0.075]{linkedin.png}}} 				% Name, Surename; The Linkedin Picture (.png) needs to be in the same folder 
 
 \contact{Street 14/4/9}{City}{AT-1150}							% Adress 
 {\href{mailto:Name.Surename@gmail.com}{Name.Surename@gmail.com}}			% Hyperlink Mail 
@@ -144,27 +182,25 @@
 %---------------------------------------------------------------------------------------
 %% 2.2 Education
 
-\section{\textbf{Education}}
+\section{Education}
 \NameDate{University I}{City,  State}
-\textit{M.Sc.  Economics; Current GPA: 1.0
-\hfill Since 10/2022
-} \\[-6.25mm]
-\begin{itemize}
-\setlength\itemsep{-0.35em}
-\myitem ....
-\myitem ....
-\end{itemize}
+\Jobtitle{M.Sc.  Economics; Current GPA: 1.0}{Since 10/2022} 
+\twobullets{
+...
+}{
+...
+}
 
 \NameDate{University II}{City,  State}
-\textit{M.Sc.  Economics (Exchange Semester) \hfill  {XX/20XX $-$ XX/20XX}} \\[-2.5mm]	% Note,  if you don't use bullets,  a different spacing is needed 
+\JobtitleNoBullets{M.Sc.  Economics (Exchange Semester)} {XX/20XX $-$ XX/20XX} 
 
 \NameDate{University III}{City,  State}
-\textit{B.Sc. Economics; GPA: 1.0 \hfill {XX/20XX $-$ XX/20XX}} \\[-6.25mm]
-\begin{itemize}
-\setlength\itemsep{-0.35em}
-\myitem ....
-\myitem Thesis: ....  (Grade: 1.0).
-\end{itemize}
+\Jobtitle{B.Sc.  Economics; GPA: 1.0}{XX/20XX $-$ XX/20XX} 
+\twobullets{
+...
+}{
+Thesis: ....  (Grade: 1.0).
+} 
 
  
 %---------------------------------------------------------------------------------------
@@ -172,33 +208,24 @@
 
 \section{Work Experience}
 \NameDate{Work Experience I}{City, State}
-\textit{Job Title; Topic} \hfill \textit {XX/20XX $-$ XX/20XX} \\[-6.25mm]
-\begin{itemize}
-\setlength\itemsep{-0.35em}
-\myitem ....
-\myitem ....
-\myitem ....
-\end{itemize}
+\Jobtitle{Job Title; Topic}{XX/20XX $-$ XX/20XX}
+\threebullets{...}
+{...} 
+{...}
 
 \NameDate{Work Experience II}{City, State}
-\textit{Job Title; Topic} \hfill \textit {XX/20XX $-$ XX/20XX} \\[-6.25mm]
-\begin{itemize}
-\setlength\itemsep{-0.35em}
-\myitem ....
-\myitem ....
-\myitem ....
-\end{itemize}
+\Jobtitle{Job Title; Topic}{XX/20XX $-$ XX/20XX}\
+\threebullets{...}
+{...} 
+{...}
 
-\NameDate{Work Experience III (Short,  not as relevant)}{City, State}
-\textit{Job Title; Topic} \hfill \textit {XX/20XX $-$ XX/20XX}  \\[-2.5mm] 		% Note,  if you dont use bullets,  a different spacing is needed 
+\NameDate{Work Experience III}{City, State}
+\JobtitleNoBullets{Job Title; Topic}{XX/20XX $-$ XX/20XX}
 
 
 \NameDate{Work Experience IV}{City, State}
-\textit{Job Title; Topic} \hfill \textit {XX/20XX $-$ XX/20XX} \\[-6.25mm]
-\begin{itemize}
-\setlength\itemsep{-0.35em}
-\myitem ....
-\end{itemize}
+\Jobtitle{Job Title; Topic}{XX/20XX $-$ XX/20XX}
+\onebullets{...}
 
 
  
@@ -207,18 +234,12 @@
 
 \section{Extra-Curriculars}
 \NameDate{Extra-Currcular Activity I}{City, State}
-\textit{Job Title; Topic} \hfill \textit {XX/20XX $-$ XX/20XX} \\[-6.25mm]
-\begin{itemize}
-\setlength\itemsep{-0.35em}
-\myitem ....
-\end{itemize}
+\Jobtitle{Job Title; Topic}{XX/20XX $-$ XX/20XX}
+\onebullets{...}
 
 \NameDate{Extra-Currcular Activity I}{City, State}
-\textit{Job Title; Topic} \hfill \textit {XX/20XX $-$ XX/20XX} \\[-6.25mm]
-\begin{itemize}
-\setlength\itemsep{-0.35em}
-\myitem ....
-\end{itemize}
+\Jobtitle{Job Title; Topic}{XX/20XX $-$ XX/20XX} 
+\onebullets{...}
 
 %---------------------------------------------------------------------------------------
 %% 2.5 Additional Information
@@ -241,9 +262,9 @@
 \end{tabularx}
 
 %---------------------------------------------------------------------------------------
-%% 2.6 Signature (optional - in Germany common) 
+%% 2.6 Signature (optional - in DACH-region common) 
 
 \vfill
 \noindent
-\hfill {\footnotesize Place,  \today $\ldots\ldots\ldots\ldots\ldots\ldots\ldots$}	% Adjust Place,  e.g. Vienna
+\hfill {\footnotesize Place,  \today $\ldots\ldots\ldots\ldots\ldots\ldots\ldots$}	% Adjust Place,  e.g. Vienna & could also include a picture easily
 \end{document}
