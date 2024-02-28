@@ -4,9 +4,9 @@ This repository contains a collection of LaTeX templates for various types of do
 Included: 
 * [CV Business - One Pager](https://github.com/VARFynn/LaTeX_Templates/tree/main/01_CV) 
 * [Article WU - Seminar Paper](https://github.com/VARFynn/LaTeX_Templates/blob/main/11_Article_WU/Article_WU_Template.tex)
-* [Article Leuphana - Seminar Paper](https://github.com/VARFynn/LaTeX_Templates/tree/main/12_Article_Leuphana)
-* [Presentation - Basic]()
-* [Presentation - Leuphana]()
+* [Article Leuphana - Seminar Paper](https://github.com/VARFynn/LaTeX_Templates/blob/main/12_Article_Leuphana/Article_Leuphana_Template.tex)
+* [Presentation - Basic](https://github.com/VARFynn/LaTeX_Templates/blob/main/21_Beamer_Basic/Presentation_Basic.tex)
+* [Presentation - Leuphana](https://github.com/VARFynn/LaTeX_Templates/blob/main/22_Beamer_Leuphana/Presentation_Leuphana.tex)
 * Letter (Coming Soon)
 
 
