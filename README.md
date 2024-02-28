@@ -7,8 +7,8 @@ Included:
 * [Article Leuphana - Seminar Paper](https://github.com/VARFynn/LaTeX_Templates/blob/main/12_Article_Leuphana/Article_Leuphana_Template.tex)
 * [Presentation - Basic](https://github.com/VARFynn/LaTeX_Templates/blob/main/21_Beamer_Basic/Presentation_Basic.tex)
 * [Presentation - Leuphana](https://github.com/VARFynn/LaTeX_Templates/blob/main/22_Beamer_Leuphana/Presentation_Leuphana.tex)
-* Letter (Coming Soon)
-
+* [Problemset/Assignment](ttps://github.com/VARFynn/LaTeX_Templates/blob/main/31_Problemset)
+* [Letter](ttps://github.com/VARFynn/LaTeX_Templates/blob/main/41_Letter)
 
 In case of any questions reach out: VARFynn@gmail.com
 

@@ -1,0 +1,214 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Assignment/Problemset - Version: Quick Setup
+% © Fynn Lohre - However,  it is a modified version of @maxmheinze.
+%
+% In case of any questions - feel free to reach out: VARFynn@gmail.com
+% If this template helps you, endorsements on LinkedIn or in persona are welcome.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%---------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% 1.  Preamble
+%
+% This defines the properties of the document.
+% Includes: Font Size, Spacing & other "Style Elements".
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%---------------------------------------------------------------------------------------
+
+%% 1.1 Basic Packages
+\documentclass[
+	a4paper, 
+	11pt,
+ 	dvipsnames
+ 	]{scrartcl}
+\usepackage[
+	margin=2cm, 
+	bottom=3cm
+	]{geometry}
+\usepackage[
+  	colorlinks = true,
+  	allcolors = black, 
+  	urlcolor = blue
+  	]{hyperref}
+  	
+\usepackage[english]{babel} 								% Load babel package for English language
+%\usepackage[english]{babel} 								% Load babel package for English language (commented out)
+\usepackage{charter} 									% Use Charter font family
+\usepackage{xcolor} 									% Define custom colors
+\usepackage{amsmath} 									% Load AMS math package for mathematical typesetting
+\usepackage{bm} 									% Load bm package for bold math symbols (Matrix-Calc.)
+\usepackage{array} 									% Load array package for advanced table formatting
+\usepackage{mathtools} 									% Load mathtools package for additional math tools
+
+%---------------------------------------------------------------------------------------
+
+%% 1.2 Spacing Rules
+\usepackage{setspace} 									% Load setspace package for line spacing settings
+\setstretch{1.2} 									% Set line spacing to 1.2
+\setlength{\parskip}{1em} 								% Set paragraph spacing to 1em
+\setlength{\parindent}{0em} 								% Set paragraph indentation to 0em
+%---------------------------------------------------------------------------------------
+
+%% 1.3 Section Rules
+\newcommand{\myrule}{\begin{center} \vspace{-24pt} \color{darkgray} \rule{\textwidth}{1pt} \end{center}}
+\newcommand{\tmpsection}[1]{}
+\let\tmpsection=\section
+\renewcommand{\section}[1]{\tmpsection{#1}\vspace{-0.5em}\myrule\vspace{-1em}}
+
+%---------------------------------------------------------------------------------------
+
+%% 1.4 Boxes 
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+\newtcolorbox{mybox}{colback=Orange!20!white,arc=12pt,boxrule=0pt, halign=flush center, colframe=white}
+
+\newtcolorbox[auto counter, number within=section, number freestyle={\noexpand\thesection.\noexpand\arabic{\tcbcounter}}]{examplebox}[2][]{%
+    enhanced,
+    breakable,
+    colback=black!10,
+    colframe=black,
+    fonttitle=\bfseries,
+    title=Example~\thetcbcounter: #2,
+    #1
+}
+
+\newtcolorbox{problembox}{%
+    enhanced,%
+    breakable,%
+    colback=black!40!darkgray!10,%
+    colframe=darkgray,%
+    fontupper=\color{darkgray!50!black}%
+}
+
+
+%---------------------------------------------------------------------------------------
+
+%% 1.5 Table of Contents
+
+% This causing the warning since it is not meant for KOMA-Script-classes.  I will fix  
+% this issue in a later version.
+
+\usepackage{tocloft} 									% Load tocloft package for table of contents customization
+%\setcounter{tocdepth}{2} 								% Set the depth of the table of contents (toc) to include subsections
+\setcounter{secnumdepth}{0} 								% Set the depth of section numbering (secnum) to not include sections
+%\setcounter{section}{0} 								% Uncomment to reset the section counter to 0
+
+
+
+
+%---------------------------------------------------------------------------------------
+
+%% 1.6 Special Environments
+\usepackage{graphicx} 									% For including graphics
+\usepackage{tikz} 									% For creating graphics programmatically
+\usepackage{float} 									% For improved float placement options
+\usepackage{listings} 									% For typesetting code listings
+
+%---------------------------------------------------------------------------------------
+
+%% 1.7 Headers and Footers
+\usepackage{scrlayer-scrpage}
+\usepackage{lastpage}
+\clearpairofpagestyles
+\addtokomafont{pagefoot}{\color{black}}
+\pagestyle{scrheadings}
+
+\newcommand{\AddFooter}{
+\ofoot*{\pagemark/\pageref{LastPage}}
+\cfoot*{\assshortauthor}
+\ifoot*{\assdate}
+}
+
+
+%---------------------------------------------------------------------------------------
+
+%% 1.8 Miscl.  Commands
+\newcommand{\qed}{\hfill\blacksquare}
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+\newcommand{\FirstPage}{
+\hypertarget{toc}{}
+{
+\LARGE
+\color{black}
+\textbf{\asstitle} \par
+}
+\vspace{0.5em}
+{
+\color{gray}
+\hrule height 0.5pt
+}
+
+\vspace{-0.55em}
+
+{
+\large
+\color{gray}
+\textbf{by \assauthor \hfill \assdate} \par
+}
+}
+
+
+%---------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% 2. Content
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%---------------------------------------------------------------------------------------
+
+%% 2.1 Input your information here:
+\newcommand{\asstitle}{Title Here} 							% Define the title of the document
+\newcommand{\assauthor}{Long Author Name} 						% Define the full author name
+\newcommand{\assshortauthor}{Short Author Name} 					% Define a short version of the author name for headers/footers
+\newcommand{\assdate}{\today}								% Define the date
+
+
+\begin{document}
+\thispagestyle{empty}
+\FirstPage
+\tableofcontents 									% If you don't need a TOC just add a %.
+\clearpage
+
+\AddFooter
+
+%---------------------------------------------------------------------------------------
+
+%% 2.2 The text:
+\section{Examplatory }
+\textbf{This is a problem box: } 
+\begin{problembox}
+Assume that the assumptions of the classical regression model apply but that the true value of the constant is zero, so that
+
+\[
+\bm{y} = \bm{X\beta} + \bm{u},
+\]
+
+where $\bm{X}$ does not contain a column of ones as a first column. Compare the expected value and variance of the least squares slope estimator computed without a constant term with that of the estimator computed with (an unnecessary) constant term, that is, using the model
+
+\[
+\bm{y} = \beta_0 + \bm{X\beta} + \bm{u}.
+\]
+\end{problembox}
+
+\textbf{This is a code box: } 
+\begin{lstlisting}[frame = single, language=R]
+# Estimate model
+original_model <- lm(y~x, data = bootdata)
+
+# Extract the "basic" t statistic
+basic_t <- (summary(original_model)$coefficients[2,1]-1) 
+\end{lstlisting}
+
+\href{https://www.example.com}{Example Website}
+\end{document}
+
