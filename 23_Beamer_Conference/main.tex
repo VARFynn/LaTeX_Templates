@@ -1,0 +1,229 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Template - Version: Conferences // Paper Presentation
+% © Fynn Lohre 
+%
+% The following template is designed for a presentation in standard conference style.
+%
+% In case of any questions - feel free to reach out: VARFynn@gmail.com
+% If this template helps you, endorsements on LinkedIn or in persona are welcome.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+% DOCUMENT CLASS AND BASIC CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[
+    11pt,                               % Default font size. You can change this value if you need a larger or smaller font size for your slides.
+    % t,                                % Align vertically to the top (commented out). This option can be used to align the content to the top of the slide if uncommented.
+    aspectratio=169,                    % Set 16:9 aspect ratio for presentation slides. You can adjust this to a different aspect ratio if needed (e.g., 4:3).
+    %handout,                           % Handout format (commented out). Uncomment this option if you want to generate a version suitable for handouts (no animations, no transitions).
+]{beamer}
+\graphicspath{{img/}}                   % Sets the directory for images (e.g., 'img' folder). Place your image files in the 'img' folder in your project directory.
+
+%----------------------------------------------------------------------------------------
+% EXPLANATION OF DOCUMENT CLASS AND CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+% The document class 'beamer' is used for creating presentations. 
+% The options defined here, such as '11pt' for font size and 'aspectratio=169' for a 16:9 slide aspect ratio, can be modified as per your needs. 
+% 'graphicspath' specifies the directory (in this case, 'img') where your images should be placed. Make sure to place your image files in the designated folder.
+
+%----------------------------------------------------------------------------------------
+% REQUIRED PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{
+    booktabs,                           % Improves the appearance of table lines. This is especially useful for creating professional-looking tables.
+    palatino,                           % Sets Palatino as the main font (for elegant typography). You can replace this with a different font if desired.
+    subcaption                          % Support for subfigures (e.g., figure panels with captions). Use this if you need to present multiple subfigures within one figure environment.
+}
+\usepackage[ngerman,english]{babel}     % Allows multi-language support (German and English). Uncomment the language(s) you will be using in your presentation.
+\usepackage[utf8]{inputenc}             % Specifies input encoding as UTF-8 (allows accented characters, etc.). Keep this as-is to handle non-ASCII characters.
+\usepackage{csquotes}                   % Recommended package for handling quotations (e.g., quotes in multiple languages).
+
+\usepackage[default]{opensans}          % Sets Open Sans as the secondary font (sans-serif font for readability). You can use other fonts by changing the font package.
+\input{config/code_langs}               % Imports configurations for syntax highlighting in code. You can customize this file to highlight the programming languages you use.
+
+\usepackage{fontawesome5}               % For using icons from FontAwesome (e.g., for social media links or icons).
+\usepackage{tikz}                       % Provides the drawing package for creating graphics in LaTeX.
+\usepackage{pgfplots}                   % Package for creating plots and visualizations with PGF/TikZ.
+\pgfplotsset{compat=1.18}               % Ensures compatibility with version 1.18 of PGFPlots.
+\usepackage{animate}                    % For creating animations in slides (e.g., revealing content step by step).
+\usepackage{appendixnumberbeamer}       % For handling appendices in presentations, ensures proper numbering.
+
+%----------------------------------------------------------------------------------------
+% EXPLANATION OF REQUIRED PACKAGES
+%----------------------------------------------------------------------------------------
+% The above packages are essential for providing various features in your presentation:
+% - 'booktabs' enhances table formatting.
+% - 'palatino' sets a professional font style (Palatino). You can replace it with other font options if necessary.
+% - 'subcaption' allows for subfigures within larger figures.
+% - 'babel' enables multi-language support (choose the languages needed).
+% - 'opensans' sets Open Sans as a secondary font (for a clean, modern look).
+% - 'fontawesome5' lets you include icons in your slides.
+% - 'tikz' and 'pgfplots' are useful for creating custom drawings and plots in your slides.
+% - 'animate' allows you to add animation effects.
+% - 'appendixnumberbeamer' helps with properly numbering appendices.
+
+%----------------------------------------------------------------------------------------
+% THEME CONFIGURATION
+%----------------------------------------------------------------------------------------
+\usetheme{Boadilla}                             % Defines the main theme style (Boadilla is a clean theme with a white background and those orga-circles in the header).
+\useinnertheme{circles}                         % Inner theme with circles (applies circular icons for navigation).
+%\useoutertheme{miniframes}                     % With Subsections as circles. 
+\useoutertheme[subsection = false]{miniframes}  % Without Subsections as circles. 
+%\setbeamertemplate{mini frames}{}              % Removes the dots in the mini frame (commented out).
+% \setbeamertemplate{headline}{}                % Removes the top bar entirely (commented out).
+\setbeamertemplate{navigation symbols}{}        % Removes navigation symbols (no page numbers or buttons).
+\useinnertheme{rectangles}                      % Rectangles instead of circles. 
+
+
+% THIS ADDS THE BULLETS RIGHT TO THE SECTION (REMOVE IF YOU DONT WANT IT) 
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\slideentry}{\advance\beamer@tempdim by -.05cm}{\advance\beamer@tempdim by\beamer@vboxoffset\advance\beamer@tempdim by\beamer@boxsize\advance\beamer@tempdim by 1.2\pgflinewidth}{}{}
+\patchcmd{\slideentry}{\kern\beamer@tempdim}{\advance\beamer@tempdim by 2pt\advance\beamer@tempdim by\wd\beamer@sectionbox\kern\beamer@tempdim}{}{}
+\makeatother
+
+
+%----------------------------------------------------------------------------------------
+% EXPLANATION OF THEME CONFIGURATION
+%----------------------------------------------------------------------------------------
+% The theme configuration section customizes the appearance of the presentation:
+% - 'usetheme' sets the main visual style of the presentation (in this case, 'Boadilla' is used).
+% - 'useinnertheme' customizes the appearance of inner navigation elements (e.g., circles for navigation).
+% - 'useoutertheme' controls the outer navigation frame (miniframes for sections/subsections).
+% - 'setbeamertemplate' controls various template elements (e.g., removing navigation symbols or custom elements).
+
+%----------------------------------------------------------------------------------------
+% CUSTOM COLORS
+%----------------------------------------------------------------------------------------
+\definecolor{primaryColor}{RGB}{20,60,105}   % Primary color - dark blue.
+\definecolor{secondaryColor}{RGB}{0,100,160} % Secondary color - medium blue.
+
+% Color Blind-Friendly Colors
+\definecolor{cb-black}{RGB}{0,0,0}           % Black.
+\definecolor{cb-orange}{RGB}{230,159,0}      % Orange.
+\definecolor{cb-green}{RGB}{0,158,115}       % Bluish green.
+\definecolor{cb-yellow}{RGB}{240,228,66}     % Yellow.
+\definecolor{cb-vermillion}{RGB}{213,94,0}   % Vermillion.
+\definecolor{cb-purple}{RGB}{204,121,167}    % Reddish purple.
+
+%----------------------------------------------------------------------------------------
+% EXPLANATION OF CUSTOM COLORS
+%----------------------------------------------------------------------------------------
+% This section defines custom colors for your presentation:
+% - 'primaryColor' and 'secondaryColor' are the main colors used throughout the slides (dark blue and medium blue).
+% - Additional color definitions are included for color-blind-friendly schemes. These colors can be used for charts, graphs, and other visual elements to make the presentation more accessible.
+
+%----------------------------------------------------------------------------------------
+% COLOR SETTINGS
+%----------------------------------------------------------------------------------------
+\setbeamercolor{structure}{fg=primaryColor}                             % Set the color of the structure (headings, etc.) to primary color.
+\setbeamercolor{palette primary}{bg=primaryColor, fg=white}             % Set primary palette (background: primary color, text: white).
+\setbeamercolor{palette secondary}{bg=secondaryColor, fg=white}         % Set secondary palette (background: secondary color, text: white).
+\setbeamercolor{title}{bg=primaryColor, fg=white}                       % Set title color (background: primary color, text: white).
+\setbeamercolor{frametitle}{bg=secondaryColor, fg=white}                % Set frame title color (background: secondary color, text: white).
+
+
+% Header and Footer Colors
+\setbeamercolor{headline}{bg=secondaryColor, fg=white}                  % Set header background to secondary color, text to white.
+\setbeamercolor{section in head/foot}{bg=primaryColor, fg=white}        % Section in header/footer: primary background, white text.
+\setbeamercolor{subsection in head/foot}{bg=secondaryColor, fg=white}   % Subsection in header/footer: secondary background, white text.
+\setbeamercolor{author in head/foot}{bg=primaryColor, fg=white}         % Author in header/footer: primary background, white text.
+\setbeamercolor{title in head/foot}{bg=secondaryColor, fg=white}        % Title in header/footer: secondary background, white text.
+\setbeamercolor{date in head/foot}{bg=primaryColor, fg=white}           % Date in header/footer: primary background, white text.
+\setbeamercolor{page number in head/foot}{bg=primaryColor, fg=white}    % Page number in header/footer: primary background, white text.
+
+% Captions and Buttons
+\setbeamertemplate{caption}[numbered]			                        % Set the caption template to be numbered (i.e., captions will have numbers like "Figure 1", "Table 1", etc.)
+\setbeamertemplate{theorems}[numbered]			                        % Set the theorem template to be numbered (i.e., theorems will be numbered like "Theorem 1", "Theorem 2", etc.)
+
+\setbeamercolor{caption name}{fg=black}			                        % Set the foreground color of the caption name (e.g., "Figure", "Table") to black
+\setbeamercolor{caption}{fg=black}				                        % Set the foreground color of the caption text (the actual caption) to black
+
+\renewcommand{\figurename}{F\text{\fontsize{8}{10}\selectfont IGURE}}   % Redefine the figure name to be in uppercase with a custom font size (8pt), so it becomes "FIGURE" in the figure caption
+\renewcommand{\tablename}{T\text{\fontsize{8}{10}\selectfont ABLE}}		% Redefine the table name to be in uppercase with a custom font size (8pt), so it becomes "TABLE" in the table caption
+
+\setbeamercolor{button}{bg=secondaryColor!25!white, fg=black}		    % Set the color of the button in Beamer to have a background color of a blend of 'secondaryColor' and white, and text (foreground) color to black
+
+%----------------------------------------------------------------------------------------
+% EXPLANATION OF COLOR SETTINGS
+%----------------------------------------------------------------------------------------
+% This section customizes the color scheme for various elements in the presentation:
+% - 'setbeamercolor' defines the color of different components such as the structure, title, frame title, and header/footer sections.
+% - The 'primaryColor' and 'secondaryColor' are used throughout to maintain a consistent color theme for the presentation.
+
+%----------------------------------------------------------------------------------------
+% BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+\usepackage[style=alphabetic,backend=biber]{biblatex}               % Bibliography style using alphabetic citation, backend: biber.
+\addbibresource{bibliography.bib}                                   % Adds the bibliography file (bibliography.bib).
+
+% CURRENTLY, I HAVE NOCITE COMMENTED OUT; THUS, NOTHINGS IS GENERATED. Change when you add ur sources.
+
+% I normally turn no cite on and cite manually in beamer (I know this can be done different, but I like it in beamer more)
+\newcommand{\citegray}[1]{{\footnotesize \color{gray} (c.f. #1)}}
+% Then e.g. \citegray{Almer et al. 2024}
+
+
+
+%----------------------------------------------------------------------------------------
+% EXPLANATION OF BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+% In this section, the bibliography is configured using the 'biblatex' package.
+% - 'style=alphabetic' sets the citation style to alphabetic.
+% - The 'biber' backend is used for processing the bibliography.
+% - The 'addbibresource' command links the '.bib' file where your references are stored. Make sure to have a bibliography file named 'bibliography.bib' in your project directory.
+
+%----------------------------------------------------------------------------------------
+% PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+\title[Short Title]{Full Title}                                     % Short version for header/footer, full version for title slide.
+\author[Fynn Lohre]{Fynn Lohre}                                     % Short version for header/footer, full name for title slide.
+\institute[ISS]{Institute of Statistical Statistics \\ (ISS)}       % Short version for header/footer, full name and affiliation for title slide.
+\date[Year]{MONTH / YEAR}                                           % Short version for header/footer, full date for title slide.
+
+%----------------------------------------------------------------------------------------
+% EXPLANATION OF PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+% This section defines the main information of the presentation:
+% - 'title' defines the title of the presentation. You can use both short and full titles for different contexts (header/footer vs title slide).
+% - 'author' defines the author's name. Use both short and full names as needed.
+% - 'institute' defines the affiliation or institution of the author. You can customize this to your own institution.
+% - 'date' specifies the date of the presentation. You can use both short and full formats.
+
+%----------------------------------------------------------------------------------------
+% BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% Title slide with logo
+\begin{frame}
+\maketitle                                                           % Displays the title, author, institute, and date defined above.
+\end{frame}
+
+% Table of contents
+%\begin{frame}
+%    \frametitle{Presentation Structure}                             % Title of the slide.
+%    \tableofcontents                                                % Generates the table of contents.
+%\end{frame}
+
+% Include sections
+\include{sections/section00}                                        % Include content from the 'section00.tex' file.
+\include{sections/section01}                                        % Include content from the 'section01.tex' file.
+\include{sections/section02}                                        % Include content from the 'section02.tex' file.
+\include{sections/section03}                                        % Include content from the 'section03.tex' file.
+\include{sections/appendix}                                         % Include content from the 'appendix.tex' file.
+
+\end{document}
+
+%----------------------------------------------------------------------------------------
+% EXPLANATION OF DOCUMENT STRUCTURE
+%----------------------------------------------------------------------------------------
+% The 'document' environment begins the actual content of your presentation.
+% - 'frame' environments define the slides.
+% - 'maketitle' creates the title slide with the information defined earlier.
+% - 'tableofcontents' generates the table of contents automatically based on the sections.
+% - 'include' commands allow you to split your presentation into smaller, manageable sections (separate .tex files).
+% The presentation structure is flexible, and you can add or remove sections as needed.
+

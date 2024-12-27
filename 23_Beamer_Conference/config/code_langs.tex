@@ -1,0 +1,127 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND CONFIGURATIONS FOR CODE 
+% (This is based upon ttps://github.com/lucasamtaylor01/IME-template)
+%  -- Currently only reads: Stata, R, Python
+%----------------------------------------------------------------------------------------
+% Packages required for code formatting
+\usepackage[utf8]{inputenc}                         % Ensures UTF-8 encoding support
+\usepackage{listings}                               % Provides environment for including code
+\usepackage{xcolor}                                 % Enables color customization
+
+% Colors for syntax highlighting (VSCode Light Theme)
+\definecolor{vscBackground}{RGB}{255,255,255}       % White background
+\definecolor{vscKeyword}{RGB}{175,0,219}            % Purple for keywords
+\definecolor{vscString}{RGB}{163,21,21}             % Red for strings
+\definecolor{vscComment}{RGB}{0,128,0}              % Green for comments
+\definecolor{vscFunction}{RGB}{121,94,38}           % Brown for functions
+\definecolor{vscNumber}{RGB}{9,134,88}              % Dark green for numbers
+\definecolor{vscOperator}{RGB}{175,0,219}           % Purple for operators
+\definecolor{vscText}{RGB}{0,0,0}                   % Black for text
+\definecolor{vscLineNr}{RGB}{128,128,128}           % Gray for line numbers
+
+% General listings configuration for UTF-8
+\lstset{
+    inputencoding=utf8,                             % Sets input encoding to UTF-8
+    extendedchars=true,                             % Allows extended character support
+    literate=%
+        % Maps special characters for compatibility in code listings
+        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+        {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+        {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+        {ã}{{\~a}}1 {ẽ}{{\~e}}1 {ĩ}{{\~i}}1 {õ}{{\~o}}1 {ũ}{{\~u}}1
+        {Ã}{{\~A}}1 {Ẽ}{{\~E}}1 {Ĩ}{{\~I}}1 {Õ}{{\~O}}1 {Ũ}{{\~U}}1
+        {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+        {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+        {ç}{{\c c}}1 {Ç}{{\c C}}1
+        {º}{{\textordmasculine}}1
+        {ª}{{\textordfeminine}}1
+}
+
+% Common base settings for all languages
+\lstdefinestyle{baseStyle}{
+    backgroundcolor=\color{vscBackground},      % Set background color
+    basicstyle=\ttfamily\small\color{vscText},  % Basic font style and color
+    breakatwhitespace=false,                    % Do not break lines at whitespace
+    breaklines=true,                            % Allow line breaking
+    captionpos=b,                               % Position captions at the bottom
+    keepspaces=true,                            % Preserve spaces in code
+    numbers=left,                               % Display line numbers on the left
+    numbersep=5pt,                              % Space between numbers and code
+    showspaces=false,                           % Do not highlight spaces
+    showstringspaces=false,                     % Do not show spaces in strings
+    showtabs=false,                             % Do not highlight tab spaces
+    tabsize=4,                                  % Set tab size to 4 spaces
+    frame=single,                               % Draw a frame around the code
+    framerule=0.8pt,                            % Frame line thickness
+    rulecolor=\color{gray!20},                  % Frame color
+    numberstyle=\tiny\color{vscLineNr},         % Line number font and color
+    keywordstyle=\color{vscKeyword},            % Style for keywords
+    commentstyle=\color{vscComment}\itshape,    % Style for comments (italic)
+    stringstyle=\color{vscString},              % Style for strings
+    emphstyle=\color{vscFunction},              % Style for emphasized elements (functions)
+    columns=flexible,                           % Adjust column spacing
+    basewidth={0.5em,0.45em},                   % Character width adjustment
+    inputencoding=utf8,                         % Input encoding
+    extendedchars=true                          % Support for extended characters
+}
+
+%----------------------------------------------------------------------------------------
+% Python
+%----------------------------------------------------------------------------------------
+\lstdefinestyle{pythonStyle}{
+    style=baseStyle,
+    language=Python,
+    morekeywords={self,None,True,False,import,from,as,def,class,return,yield,
+                  for,while,if,else,elif,try,except,finally,with,lambda,
+                  async,await,break,continue,global,nonlocal,pass,raise},
+    morekeywords=[2]{print,len,range,type,int,str,float,list,dict,set,
+                     tuple,max,min,sum,sorted,enumerate,zip,map,filter,
+                     any,all,abs,round,pow,divmod},
+    keywordstyle=[2]\color{vscFunction},
+    sensitive=true
+}
+
+\lstnewenvironment{python}[1][]{\lstset{style=pythonStyle, #1}}{}
+\newcommand{\pyinline}[1]{\lstinline[style=pythonStyle]!#1!}
+\newcommand{\inputpython}[2][]{\lstinputlisting[style=pythonStyle,#1]{#2}}
+
+
+%----------------------------------------------------------------------------------------
+% R Language
+%----------------------------------------------------------------------------------------
+\lstdefinestyle{rStyle}{
+    style=baseStyle,
+    language=R,
+    morekeywords={if,else,repeat,while,function,for,in,next,break,TRUE,FALSE,
+                  NULL,Inf,NaN,NA,NA_integer_,NA_real_,NA_complex_,NA_character_},
+    morekeywords=[2]{library,require,attach,detach,source,setwd,options,
+                     data.frame,read.csv,write.csv,list,matrix,array},
+    keywordstyle=[2]\color{vscFunction},
+    sensitive=true
+}
+
+\lstnewenvironment{rlang}[1][]{\lstset{style=rStyle, #1}}{}
+\newcommand{\rlinline}[1]{\lstinline[style=rStyle]!#1!}
+\newcommand{\inputrlang}[2][]{\lstinputlisting[style=rStyle,#1]{#2}}
+
+
+%----------------------------------------------------------------------------------------
+% Stata
+%----------------------------------------------------------------------------------------
+\lstdefinestyle{stataStyle}{
+    style=baseStyle,
+    morekeywords={if,else,foreach,forvalues,while,capture,quietly,noisily,
+                  local,global,scalar,matrix,return,ereturn,sreturn,
+                  program,end,exit,continue,break,by,bysort,sort},
+    morekeywords=[2]{use,save,merge,append,collapse,reshape,egen,
+                     regress,logit,probit,summarize,tabulate,generate,replace,
+                     drop,keep,order,set,cd,pwd,clear,display},
+    keywordstyle=[2]\color{vscFunction},
+    sensitive=true
+}
+
+% Umgebungsdefinition für Stata-Code
+\lstnewenvironment{stata}[1][]{\lstset{style=stataStyle, #1}}{}
+\newcommand{\statainline}[1]{\lstinline[style=stataStyle]!#1!}
+\newcommand{\inputstata}[2][]{\lstinputlisting[style=stataStyle,#1]{#2}}
