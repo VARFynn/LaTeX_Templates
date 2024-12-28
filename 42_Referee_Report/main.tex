@@ -1,0 +1,85 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Referee Report with Letter to the editor
+% © Fynn Lohre 
+%
+% The following template is designed for a quick setup to minimize time usage.
+% In theory, you should just use the main file.
+% However, if you need to customaize something look into subfiles/.
+%
+% In case of any questions - feel free to reach out: VARFynn@gmail.com
+% If this template helps you, endorsements on LinkedIn or in persona are welcome.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%---------------------------------------------------------------------------------------
+% PRE
+\documentclass[11pt]{article}
+
+%---------------------------------------------------------------------------------------
+% ADD FURTHER PACKAGES HERE (If needed, otherwise go to subfiles/config.tex
+
+
+\input{subfiles/config}
+
+%---------------------------------------------------------------------------------------
+% STEP 1: Customize Basics
+\newcommand{\authorName}{Your Name}                                                      % Author's name
+\newcommand{\schoolName}{Your School}                                                    % School/affiliation
+\newcommand{\address}{Your Address}                                                      % Address
+\newcommand{\editorName}{Editor Name}                                                    % Editor's name
+\newcommand{\journalName}{Journal Name}                                                  % Journal name
+\newcommand{\editorAddress}{Editor Address}                                              % Address of the journal editor
+\newcommand{\manuscriptID}{1234 }                                                        % Manuscript ID
+\newcommand{\manuscriptTitle}{This is the Title}                                         % Manuscript title
+\newcommand{\reviewDate}{\today}                                                         % Date of review (default is today)
+
+
+%---------------------------------------------------------------------------------------
+% STEP 2: Add Core Parts in Letter to the EDITOR 
+% For a more in depth change, go to letter_editor.tex
+
+ % Recommendation for the manuscript (Acceptance/ R&R / Reject)
+\newcommand{\recommendation}{RECOMMENDATION}                   
+           
+% Assesment of the manuscript (Quick Summary of your impression)
+\newcommand{\assessment}{ASSESSMENT}      
+
+% Brief summary of the manuscript (Summary of core parts for the editor)
+\newcommand{\summaryPart}{SUMMARY PART}              
+
+% Assesment of Limitations and potential flaws (List the core flaws of the paper; in the end the editor has to decide)
+\newcommand{\limitations}{LIMITATIONS / FLAWS}                  
+
+\input{subfiles/letter_editor}
+
+%---------------------------------------------------------------------------------------
+% STEP 3: Summary of the Paper or the Author
+\newcommand{\summaryauthor}{This is the summary of the paper and some initial comments.}   
+
+%---------------------------------------------------------------------------------------
+% STEP 4: Major Items
+% just use \mitem{Summary word(s)}{Text}
+\newcommand{\majoritem}{
+\mitem{Problem Identification}{This is a major item, whereas a problem in the identification exists}
+\mitem{Problem Identification}{This is a major item, whereas a problem in the identification exists}
+\mitem{Problem Identification}{This is a major item, whereas a problem in the identification exists}
+\mitem{Problem Identification}{This is a major item, whereas a problem in the identification exists}
+}
+
+%---------------------------------------------------------------------------------------
+% STEP 5: Minor Items
+% just use \mitem{Summary word(s)}{Text}
+\newcommand{\minoritem}{
+\mitem{Problem Identification}{This is a minor item, whereas a problem in the identification exists}
+\mitem{Problem Identification}{This is a minor item, whereas a problem in the identification exists}
+\mitem{Problem Identification}{This is a minor item, whereas a problem in the identification exists}
+\mitem{Problem Identification}{This is a minor item, whereas a problem in the identification exists}
+}
+
+%---------------------------------------------------------------------------------------
+% STEP 5: Final Comments
+\newcommand{\finalcomment}{
+This is the final comment. This can be typos or misc. things. 
+}
+\include{subfiles/referee_report}

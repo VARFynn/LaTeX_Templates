@@ -1,6 +1,6 @@
 # LaTeX Templates Collection
 
-This repository contains LaTeX templates for academic documents, designed for easy customization and use, especially for LaTeX beginners. Each template is contained in a single file for simplicity, except for the Conference presentation template which has a more complex structure.
+This repository contains LaTeX templates for academic documents, designed for easy customization and use, especially for LaTeX beginners. Each template is contained in a single file for simplicity, except for the Conference presentation, referee report and response template which have a more complex structure.
 
 ## Templates
 

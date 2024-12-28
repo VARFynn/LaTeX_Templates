@@ -1,0 +1,38 @@
+% Essential packages for professional formatting incl. everything needed to display equations (if needed). 
+%---------------------------------------------------------------------------------------
+
+\usepackage[utf8]{inputenc}                                     % Ensures UTF-8 encoding
+\usepackage[T1]{fontenc}                                        % Improved font encoding for better output
+\usepackage[english]{babel}                                     % Language support (set to English, adjust as needed)
+\usepackage[margin=1in]{geometry}                               % Sets 1-inch margins
+\usepackage{amsmath, amssymb, amsthm}                           % Core math packages
+\usepackage{mathtools}                                          % Enhanced math features
+\usepackage{bm}                                                 % Bold math symbols
+\usepackage{physics}                                            % Convenient commands for physics and derivatives
+\usepackage{fancyhdr}                                           % For header and footer customization
+\usepackage{datetime}                                           % To display the date in various formats
+\usepackage{enumitem}                                           % For better control over lists
+\usepackage[colorlinks=true,  
+            linkcolor=blue, 
+            urlcolor=blue, 
+            citecolor=blue]{hyperref}                           % For clickable links
+\usepackage{xcolor}                                             % Colored text for highlighting
+
+% Configure page style
+\pagestyle{fancy}                                               % Use fancyhdr package for custom footer
+\fancyhf{}                                                      % Clear default header and footer
+\renewcommand{\headrulewidth}{0pt}                              % Remove header rule
+\fancyfoot[C]{\thepage}                                         % Centered page numbering in the footer
+
+% Math environments
+\theoremstyle{definition} % Style for definitions
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{plain} % Style for theorems
+\newtheorem{theorem}{Theorem}[section]
+
+\theoremstyle{remark} % Style for remarks
+\newtheorem*{remark}{Remark}
+
+% Custom Items
+\newcommand{\mitem}[2]{\item \textbf{#1:} {#2}}

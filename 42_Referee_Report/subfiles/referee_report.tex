@@ -1,0 +1,51 @@
+% Core Part Letter to Referee Report.
+% If you want to customaize it, do it here.
+
+%---------------------------------------------------------------------------------------
+
+\newpage
+\pagenumbering{roman}
+% Referee Report Section
+\begin{center}
+\Large\textbf{\textsc{Referee Report}}
+
+\end{center}
+\bigskip
+
+\noindent \large\textbf{\textsc{initial comments}}
+
+\vspace{0.3cm}
+\noindent \summaryauthor
+
+
+
+% Define a custom enumerate style for major items
+\setlist[enumerate,1]{label=A\arabic*, ref=A\arabic*}          % Level 1: A1, A2, A3, ...
+\setlist[enumerate,2]{label=A\arabic*.\arabic*, ref=A\arabic*.\arabic*}  % Level 2: A1.1, A1.2, ...
+\setlist[enumerate,3]{label=A\arabic*.\arabic*.\arabic*, ref=A\arabic*.\arabic*.\arabic*} % Level 3: A1.1.1, A1.1.2, ...
+\setlist[enumerate,4]{label=A\arabic*.\arabic*.\arabic*.\arabic*, ref=A\arabic*.\arabic*.\arabic*.\arabic*} % Level 4: A1.1.1.1, A1.1.1.2, ...
+
+\bigskip
+\noindent \large\textbf{\textsc{major items}}
+\begin{enumerate}
+\majoritem
+\end{enumerate}
+
+\setlist[enumerate,1]{label=B\arabic*, ref=B\arabic*}          % Level 1: B1, ... 
+\setlist[enumerate,2]{label=B\arabic*.\arabic*, ref=B\arabic*.\arabic*}  % Level 2: B1.1, ....
+\setlist[enumerate,3]{label=B\arabic*.\arabic*.\arabic*, ref=B\arabic*.\arabic*.\arabic*} % Level 3: B1.1.1, ....
+\setlist[enumerate,4]{label=B\arabic*.\arabic*.\arabic*.\arabic*, ref=B\arabic*.\arabic*.\arabic*.\arabic*} % Level 4: B1.1.1.1, ...
+
+\bigskip
+\noindent \large\textbf{\textsc{minor items}}
+\begin{enumerate}
+\minoritem
+\end{enumerate}
+
+\bigskip
+\noindent \large\textbf{\textsc{final comments}}
+
+\vspace{0.3cm}
+\noindent \finalcomment
+
+\end{document}
