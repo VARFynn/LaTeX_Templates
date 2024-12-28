@@ -1,0 +1,138 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Letter Template for Correspondence
+% © Fynn Lohre 
+%
+% This template is designed for easy generation of formal letters using the scrlttr2 class.
+% You can adjust various settings such as page layout, sender and recipient information, 
+% and additional document properties as needed.
+%
+% In case of any questions or requests for customizations, feel free to reach out: 
+% fynn.lohre@example.com
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%---------------------------------------------------------------------------------------
+% PRE
+\documentclass[
+    paper=a4,                                                                               % Paper format: A4 (standard size for formal letters)
+    version = last, 
+    fontsize=11pt                                                                           % Font size for the letter
+]{scrlttr2}
+
+%---------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------
+% KOMA-Script Options (Each option explained with its effect when set to true or false)
+\KOMAoptions{
+    foldmarks=HmPv,                                                                         % fold marks for envelope, customized with 'HmPv' (marks for folding the letter)
+    firsthead=true,                                                                         % true: Include header on the first page, false: No header on the first page
+    fromalign=right,                                                                        % true: Align sender information to the right, false: Align sender information to the left (default)
+    fromrule=aftername,                                                                     % true: Print a rule below the sender's name, false: No rule
+    symbolicnames=marvosym,                                                                 % true: Use symbols for sender information (e.g., phone, email, etc.), false: Do not use symbols
+    fromphone=true,                                                                         % true: Print sender's phone number, false: Do not print phone number
+    fromemail=true,                                                                         % true: Print sender's email address, false: Do not print email address
+    fromurl=false,                                                                          % true: Print sender's URL, false: Do not print URL
+    fromlogo=false,                                                                         % true: Show sender logo (if added), false: Do not show logo
+    addrfield=true,                                                                         % true: Include recipient's address field, false: Do not include address field
+    backaddress=underlined,                                                                 % true: Print return address underlined, false: Do not underline return address
+    priority=false,                                                                         % true: Mark letter as priority, false: Do not mark as priority
+    locfield=wide,                                                                          % true: Make location field wide, false: Keep location field narrow
+    numericaldate=true,                                                                     % true: Use numerical date format (e.g., 28/12/2024), false: Use textual date format (e.g., 28 December 2024)
+    enlargefirstpage=false,                                                                 % true: Make first page larger, false: Keep first page standard size
+    firstfoot=true,                                                                         % true: Print footer on the first page, false: Do not print footer on the first page
+    parskip=half,                                                                           % true: Set paragraph spacing to half, false: Default paragraph spacing
+    headsepline=true,                                                                       % true: Print a rule below the header on subsequent pages, false: Do not print rule
+    footsepline=false,                                                                      % true: Print a rule above the footer on subsequent pages, false: Do not print rule
+    pagenumber=footright,                                                                   % true: Place page number on the right of the footer (subsequent pages only), false: Do not place page number
+}
+
+
+\hbadness=10000                                                                             % Suppress badness warnings for page layout
+\vbadness=10000                                                                             % Suppress badness warnings for vertical layout
+
+%---------------------------------------------------------------------------------------
+% Essential Packages
+\usepackage[utf8]{inputenc}                                                                 % Unicode character support for different languages
+\usepackage[T1]{fontenc}                                                                    % Extended font encoding for special characters
+\usepackage[ngerman]{babel}                                                                 % Support for German language, change to 'english' if needed
+\usepackage{textcomp}                                                                       % Support for special characters (e.g., ©, ®)
+\usepackage{eurosym}                                                                        % Euro symbol (€)
+\usepackage{tabularx}                                                                       % Flexible tables with adjustable column widths
+\usepackage{array}                                                                          % Enhanced table functionality
+\usepackage{geometry}                                                                       % Page layout control (margins, etc.)                                                                
+\usepackage{hyperref}                                                                       % Package for hyperlinks and document properties
+\hypersetup{hidelinks}                                                                      % Hide links
+%\usepackage{mathptmx}                                                                       % Changes to serific 
+\usepackage{lmodern}                                                                        % Modern font family (Latin Modern)
+\usepackage{lipsum}                                                                         % To create fill text, no relevance for u 
+
+
+%---------------------------------------------------------------------------------------
+% Page Layout Configuration (Adjust the margins and layout)
+\geometry{
+    left=2cm,                                                                               % Left margin
+    right=2cm,                                                                              % Right margin
+    top=2cm,                                                                                % Top margin
+    bottom=2cm                                                                              % Bottom margin
+}
+
+\usepackage{fontawesome5}                                                                   % for icons (I use in this template  symbolicnames=marvosym, yet, personally I put it on false and add cooler icons manualy withint the koma definiton, just google for fontawesome5 manual to see the icons and add them in 'Sender Details')
+\usepackage{xcolor}                                                                         % for color
+
+%---------------------------------------------------------------------------------------
+% Basic Letter Information (Modify these values according to your letter)
+% Use [] to change the naming \setkomavar{subject}[Le Reference]{Reference Numbe}
+\setkomavar{subject}{Subject Line}                                                          % Subject line of the letter
+\setkomavar{yourref}{Reference Number}                                                      % Reference number for the letter
+\setkomavar{myref}{Our Reference}                                                           % Your reference
+\setkomavar{date}{\today}                                                                   % Date of the letter (default is today)
+\setkomavar{customer}{Customer Number}                                                      % Customer number (if applicable)
+                                        
+%---------------------------------------------------------------------------------------
+% Sender Details (Modify these fields with your personal details)
+\setkomavar{fromname}{\textsc{Sender Name}}                                                 % Sender's name in bold
+\setkomavar{fromaddress}{1234 Street Name\\D-56789 City}                                    % Sender's address (use double line break for address lines)
+\setkomavar{fromphone}{+45 33 33 33 33}                                                     % Sender's phone number
+\setkomavar{fromemail}{email@example.com}                                                   % Sender's email address
+\setkomavar{fromurl}{www.example.com}                                                       % Sender's website URL
+%\setkomavar{signature}{Name}                                                               % Signature (if different from fromname)
+%\setkomavar{invoice}{INV-2024-001}                                                         % Optional: invoice number if applicable
+                                            
+
+%---------------------------------------------------------------------------------------
+% Start the Letter Document
+\begin{document}
+
+%---------------------------------------------------------------------------------------
+% Define the recipient's information
+\begin{letter}{
+    Recipient Name\\
+    Attention: John Smith\\
+    Department XYZ\\
+    5678 Another Street\\
+    67890 City
+}
+
+%---------------------------------------------------------------------------------------
+% Opening Salutation
+\opening{Dear Sir or Madam,}
+
+% Insert content of the letter here instead of lipsum text
+\lipsum[1-5]
+
+
+%---------------------------------------------------------------------------------------
+% Closing Salutation
+\closing{Yours sincerely,}
+
+\ps{P.S. This is a post scriptum!}
+
+%---------------------------------------------------------------------------------------
+% Optional Elements (Uncomment if needed)
+%\encl{List of enclosed documents}                                                          % If there are any documents enclosed with the letter
+%\cc{Copy recipient 1, Copy recipient 2}                                                    % If copies of the letter are being sent to others
+
+\end{letter}
+
+% End the document
+\end{document}
