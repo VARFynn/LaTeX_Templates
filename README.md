@@ -22,8 +22,8 @@ This repository contains LaTeX templates for academic documents, designed for ea
 ### Other Documents
 * 📝 [Problemset](31_Problemset)
 * 💌 [Letter](41_Letter)
-* 📋 [Referee Report](42_Referee_Report)
-* 📋 [Response to Referee Report](43_Response_Referee_Report)
+* 📋 [Referee Report](42_Referee_Report) (Multi-file setup)
+* 📋 [Response to Referee Report (by kylebutts -- no need to change this)](https://github.com/kylebutts/latex-templates/tree/main/referee-response)
 
 ## Using These Templates
 
