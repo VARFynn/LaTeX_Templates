@@ -40,5 +40,7 @@ This repository contains LaTeX templates for academic documents, designed for ea
 For sophisticated article preparation, consider using Nico Katzke's texevier package:
 [Texevier Template](https://texevier.nfkatzke.com/)
 
+Further, you can check [Paul Goldsmith-Pinkham's beamer tips](https://github.com/paulgp/beamer-tips/tree/master) for further slide ideas. 
+
 ## Contact
 Questions? Reach out: VARFynn@gmail.com
